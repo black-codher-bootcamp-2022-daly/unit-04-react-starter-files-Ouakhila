@@ -3,6 +3,7 @@ import React from 'react';
 function Task(props) { 
   
   function toggleComplete(id){
+    props.handleClick(id)
     console.log(`Task with the id '${id}' was clicked`);
   }
 
@@ -13,4 +14,9 @@ function Task(props) {
       </div>
   );
 }
+
+// Task.protoTypes = {
+//   handleClick: PropTypes.func,
+//   title: PropTypes.string,
+// }
 export default Task
