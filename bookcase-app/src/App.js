@@ -4,7 +4,7 @@ import data from './models/books.json';
 
 function App() {
   const books = data;
-  return <Book/>;
+  return <Book books={books}/>;
 }
 
 export default App;
