@@ -1,13 +1,16 @@
 function Book(props) {
-  const { authors, title, subtitle, selfLink } = props;
+  const { authors, description, amount, currencyCode, title, thumbnail } =
+    props;
 
   return (
     <div>
       <h1>{title}</h1>
-      <h2>{subtitle}</h2>
-      <h3>{authors}</h3>
-      <img src={selfLink} alt={title} />
-      <button onClick={() => props.onClick(props.id)}></button>
+      <h2>{authors}</h2>
+      <h4>{amount}</h4>
+      <h5>{currencyCode}</h5>
+      <h3>{description}</h3>
+      <img src={thumbnail} alt={title} />
+      <button onClick={() => props.onClick(props.id)}> Add Book</button>
     </div>
   );
 }
