@@ -1,0 +1,50 @@
+.Title {
+ text-align: center;
+ font-size: xx-large;
+ font-weight: bold;
+
+}
+
+.Nav-bar-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px 20px;
+    list-style-type: none;
+    font-family: lato;
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    padding-top: 10px;
+   
+   
+  }
+  .List {
+    float: center;
+    text-decoration: none;
+  }
+
+  .Text-input {
+    padding: 5px 300px; 
+  }
+
+  .Search {
+    padding-left: 25%;
+    padding-right: 25%;
+  }
+.Button-submit {
+    padding: 5px 20px;
+    
+}
+.Book-div {
+padding-left: 25%;
+padding-right: 25%;
+text-align: justify;
+
+}
+
+.Reading-sug {
+    padding-top: 80px;
+    padding-left: 25%;
+padding-right: 25%;
+}

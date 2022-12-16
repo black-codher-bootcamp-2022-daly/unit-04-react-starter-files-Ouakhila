@@ -14,12 +14,18 @@ export const Search = (props) => {
     findBooks(keyword);
   }
   return (
-    <form>
-      <p style={{ color: "red" }}>
+    <form className="Search">
+      <p style={{ color: "black" }}>
         <em>{keyword && "Keywords Typed: " + keyword}</em>
       </p>
-      <input type="text" value={keyword} onChange={handleChange} />
-      <button type="submit" onClick={onSubmit}>
+      <input
+        className="Text-input"
+        type="text"
+        value={keyword}
+        onChange={handleChange}
+      />
+
+      <button className="Button-submit" type="submit" onClick={onSubmit}>
         Find
       </button>
     </form>

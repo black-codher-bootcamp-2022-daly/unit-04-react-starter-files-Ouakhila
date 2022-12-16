@@ -1,4 +1,5 @@
 import React from "react";
+import "./main/styles.css";
 import Book from "./components/Book";
 import data from "./models/books.json";
 import BookList from "./components/BookList";
@@ -44,6 +45,9 @@ function App() {
                   setKeyword={setKeyword}
                   findBooks={findBooks}
                 ></Search>
+                <div>
+                  <h1 className="Reading-sug">Suggested Reading</h1>
+                </div>
                 {books.map((item) => (
                   <Book
                     key={item.id}
@@ -52,7 +56,7 @@ function App() {
                     amount={item.saleInfo.retailPrice?.amount}
                     currencyCode={item.saleInfo.retailPrice?.currencyCode}
                     description={item.volumeInfo.description}
-                    imageLinks={item.volumeInfo.imageLinks.thumbnail}
+                    imageLinks={item.volumeInfo.imageLinks?.smallThumbnail}
                     onClick={() => addBook(item)}
                   ></Book>
                 ))}
