@@ -19,7 +19,9 @@ export const Search = (props) => {
         <em>{keyword && "Keywords Typed: " + keyword}</em>
       </p>
       <input type="text" value={keyword} onChange={handleChange} />
-      <input type="submit" onClick={onSubmit} />
+      <button type="submit" onClick={onSubmit}>
+        Find
+      </button>
     </form>
   );
 };

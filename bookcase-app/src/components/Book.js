@@ -10,7 +10,7 @@ function Book(props) {
       <h5>{currencyCode}</h5>
       <h3>{description}</h3>
       <img src={thumbnail} alt={title} />
-      <button onClick={() => props.onClick(props.id)}> Add Book</button>
+      <button onClick={() => props.onClick(props.id)}>Add Book</button>
     </div>
   );
 }

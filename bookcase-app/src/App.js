@@ -4,7 +4,10 @@ import data from "./models/books.json";
 import BookList from "./components/BookList";
 import { Search } from "./components/Search";
 import { useState } from "react";
-//import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
+import { About } from "./components/About";
+import { Bookcase } from "./components/Bookcase";
+import { Home } from "./components/Home";
 
 function App() {
   const [books, setBooks] = useState(data);
@@ -12,10 +15,10 @@ function App() {
   const [basket, setBasket] = useState([]);
 
   function addBook(id) {
-    console.log(`The Book ${id} wa clicked`);
     const bookToAdd = basket;
     bookToAdd.push(id);
     setBasket(bookToAdd);
+    console.log({ bookToAdd, basket });
   }
 
   async function findBooks(value) {
@@ -30,28 +33,39 @@ function App() {
   return (
     //
     <div>
-      {/* <Routes>
-        <Route path="/Home"></Route>
-      </Routes> */}
-      <BookList books={books} addBook={addBook}>
-        <Search
-          keyword={keyword}
-          setKeyword={setKeyword}
-          findBooks={findBooks}
-        ></Search>
-        {books.map((item) => (
-          <Book
-            onClick={addBook}
-            key={item.id}
-            title={item.title}
-            authors={item.volumeInfo.authors}
-            amount={item.saleInfo.retailPrice?.amount}
-            currencyCode={item.saleInfo.retailPrice?.currencyCode}
-            description={item.volumeInfo.description}
-            imageLinks={item.volumeInfo.imageLinks.thumbnail}
-          ></Book>
-        ))}
-      </BookList>
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <Home>
+              <BookList books={books} addBook={addBook}>
+                <Search
+                  keyword={keyword}
+                  setKeyword={setKeyword}
+                  findBooks={findBooks}
+                ></Search>
+                {books.map((item) => (
+                  <Book
+                    key={item.id}
+                    title={item.title}
+                    authors={item.volumeInfo.authors}
+                    amount={item.saleInfo.retailPrice?.amount}
+                    currencyCode={item.saleInfo.retailPrice?.currencyCode}
+                    description={item.volumeInfo.description}
+                    imageLinks={item.volumeInfo.imageLinks.thumbnail}
+                    onClick={() => addBook(item)}
+                  ></Book>
+                ))}
+              </BookList>
+            </Home>
+          }
+        ></Route>
+        <Route path="About" element={<About />}></Route>
+        <Route
+          path="Bookcase"
+          element={<Bookcase listOfbooks={basket} />}
+        ></Route>
+      </Routes>
     </div>
   );
 }
