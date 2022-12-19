@@ -1,35 +1,35 @@
-import React from 'react';
+function Book(props) {
+  const { authors, description, amount, currencyCode, title, smallThumbnail } =
+    props;
 
-function BookList(props) {
-  const{ authors, title, subtitle, selfLink } = props
-  
   return (
-    <div>
-      <h1>{title}</h1>
-      <h2>{subtitle}</h2>
-      <h3>{authors}</h3>
-      <img src={selfLink} alt={title}/>
-   
+    <div className="Book-div">
+      <div>
+        <h1>{title}</h1>
+        <h2>{authors}</h2>
+        <h4>{amount}</h4>
+        <h5>{currencyCode}</h5>
+        <h3>{description}</h3>
+      </div>
+
+      <img src={smallThumbnail} alt={title} />
+
+      <button onClick={() => props.onClick(props.id)}>Add Book</button>
     </div>
   );
 }
 
-
-
-const Book = (props) => {
-  console.log(props.books)
-  return (
-
-    <main>
-      <h2>Book List</h2>
-      {props.books.map((item) => (<BookList title={item.volumeInfo.title} subtitle={item.volumeInfo.subtitle} authors={item.volumeInfo.authors} selflink={item.selfLink}></BookList>))}
-    </main>
-    
-  );
-  
-}
-
-
-
-
 export default Book;
+
+// const BookList = (props) => {
+//   console.log(props.books)
+//   return (
+
+//     <main>
+//       <h2>Book List</h2>
+//       {props.books.map((item) => (<Book title={item.volumeInfo.title} subtitle={item.volumeInfo.subtitle} authors={item.volumeInfo.authors} selflink={item.selfLink}></Book>))}
+//     </main>
+
+//   );
+
+// }
