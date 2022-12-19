@@ -9,16 +9,20 @@ import { Routes, Route } from "react-router-dom";
 import { About } from "./components/About";
 import { Bookcase } from "./components/Bookcase";
 import { Home } from "./components/Home";
+import { Navbar } from "./components/Navigator";
 
 function App() {
   const [books, setBooks] = useState(data);
   const [keyword, setKeyword] = useState("");
   const [basket, setBasket] = useState([]);
 
+  const [count, setCounter] = useState(0);
+
   function addBook(id) {
     const bookToAdd = basket;
     bookToAdd.push(id);
     setBasket(bookToAdd);
+    setCounter(count + 1);
     console.log({ bookToAdd, basket });
   }
 
@@ -34,6 +38,7 @@ function App() {
   return (
     //
     <div>
+      <Navbar count={count} />
       <Routes>
         <Route
           path="/"
@@ -56,7 +61,7 @@ function App() {
                     amount={item.saleInfo.retailPrice?.amount}
                     currencyCode={item.saleInfo.retailPrice?.currencyCode}
                     description={item.volumeInfo.description}
-                    imageLinks={item.volumeInfo.imageLinks?.smallThumbnail}
+                    imageLinks={item.volumeInfo.imageLinks.smallThumbnail}
                     onClick={() => addBook(item)}
                   ></Book>
                 ))}
@@ -67,7 +72,7 @@ function App() {
         <Route path="About" element={<About />}></Route>
         <Route
           path="Bookcase"
-          element={<Bookcase listOfbooks={basket} />}
+          element={<Bookcase listOfbooks={basket}></Bookcase>}
         ></Route>
       </Routes>
     </div>

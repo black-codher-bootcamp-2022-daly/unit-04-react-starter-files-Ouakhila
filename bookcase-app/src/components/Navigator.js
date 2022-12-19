@@ -1,7 +1,8 @@
 //import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
-export function Navbar() {
+export function Navbar(props) {
   return (
     <div className="Nav-element">
       <ul className="Nav-bar-list">
@@ -16,10 +17,9 @@ export function Navbar() {
             About
           </Link>
         </li>
-
         <li>
           <Link to="Bookcase" className="List">
-            Bookcase
+            Bookcase {props.count}
           </Link>
         </li>
       </ul>

@@ -11,7 +11,6 @@ root.render(
     <React.StrictMode>
       <BrowserRouter>
         <div className="Title">My e-Book Library</div>
-        <Navbar />
         <App />
       </BrowserRouter>
     </React.StrictMode>
