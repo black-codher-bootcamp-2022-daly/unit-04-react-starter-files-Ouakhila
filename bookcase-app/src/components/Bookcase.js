@@ -14,6 +14,7 @@ export const Bookcase = ({ listOfbooks }) => {
           currencyCode={el.saleInfo.retailPrice?.currencyCode}
           description={el.volumeInfo.description}
           imageLinks={el.volumeInfo.imageLinks?.smallThumbnail}
+          isInTheBasket={true}
         />
       ))}
     </div>

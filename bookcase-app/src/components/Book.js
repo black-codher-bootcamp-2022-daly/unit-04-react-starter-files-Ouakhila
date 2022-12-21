@@ -14,7 +14,9 @@ function Book(props) {
 
       <img src={smallThumbnail} alt={title} />
 
-      <button onClick={() => props.onClick(props.id)}>Add Book</button>
+      <button onClick={() => props.onClick(props.id)}>
+        {props.isInTheBasket ? "Remove" : "Add"}
+      </button>
     </div>
   );
 }
